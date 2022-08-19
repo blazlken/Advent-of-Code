@@ -34,19 +34,20 @@ def generate_AoC() -> None:
     for year in range(AOC_EPOCH.year, TODAY.year + 1):
         cd = CWD + '\\' + str(year)
 
-        if not(os.path.exists(cd)):
-            os.mkdir(cd)
-
-        for day in range(AOC_EPOCH.day, 26):
-            cd = CWD + '\\' + str(year) + '\\' + f'DAY_{day}'
-
+        if TODAY.month == 12:
             if not(os.path.exists(cd)):
                 os.mkdir(cd)
 
-            if not(os.path.exists(cd + '\\input.txt')):
-                file = open(cd + '\\input.txt', 'x')
-                file.write(get_input(get_cookie(),year,day))
-                file.close()
+            for day in range(AOC_EPOCH.day, min(TODAY.day, 25)+1):
+                cd = CWD + '\\' + str(year) + '\\' + f'DAY_{day}'
+
+                if not(os.path.exists(cd)):
+                    os.mkdir(cd)
+
+                if not(os.path.exists(cd + '\\input.txt')):
+                    file = open(cd + '\\input.txt', 'x')
+                    file.write(get_input(get_cookie(),year,day))
+                    file.close()
 
 if __name__ == '__main__':
     generate_AoC()
