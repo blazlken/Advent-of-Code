@@ -2,8 +2,8 @@ from typing import List, TypeVar
 
 T = TypeVar('A', str, int)
 
-def parse_input(input:str) -> List[int]:
-    f = open(input, 'r')
+def parse_input(filename:str) -> List[int]:
+    f = open(filename, 'r')
     output = []
     
     for l in f:

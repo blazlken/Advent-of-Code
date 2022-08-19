@@ -1,7 +1,7 @@
 from typing import List
 
-def parse_input(input:str) -> List[int]:
-    f = open(input, 'r')
+def parse_input(filename:str) -> List[int]:
+    f = open(filename, 'r')
     output = list(map(int, f.read().split()))
     f.close()
     return output 
