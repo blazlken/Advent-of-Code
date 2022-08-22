@@ -37,7 +37,7 @@ class Line():
 
         self.__generate_list()
 
-    def __generate_list(self):
+    def __generate_list(self) -> None:
         self.list = [self.start]
 
         while self.list[-1] != self.stop:
